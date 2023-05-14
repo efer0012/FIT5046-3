@@ -221,12 +221,18 @@ public class HomeFragment extends Fragment {
                                     } else {
                                         Log.e("HomeFragment", "bookedClass is null");
                                     }
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            MyClassesAdapter.setClasses(bookedClasses);
+                                        }
+                                    });
                                 }
                             }).start();
                         }
                     }
                 }
-                MyClassesAdapter.setClasses(bookedClasses);
+                //MyClassesAdapter.setClasses(bookedClasses);
 
 
             }
